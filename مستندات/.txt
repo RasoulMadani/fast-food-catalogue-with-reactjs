@@ -4,3 +4,5 @@ pnpm create vite@latest
 ✔ Select a variant: › JavaScript
 
 pnpm add axios
+
+ pnpm add react-icons --save

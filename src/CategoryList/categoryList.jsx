@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import axios from "../axios";
 import { useState } from "react";
-import Loading from "../Loading/loagind";
+import Loading from "../Loading/loading";
 
 const CategoryList = () => {
   const [loading, setLoading] = useState(true);
