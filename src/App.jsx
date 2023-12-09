@@ -20,6 +20,9 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
+  const filterItems = (categoryId) => {
+    fetchData(categoryId);
+  };
   const renderContent = () => {
     if (loading) {
       return <Loading theme="dark" />;
@@ -29,7 +32,7 @@ function App() {
   return (
     <div className="wrapper bg-faded-dark">
       <Header />
-      <CategoryList />
+      <CategoryList filterItems={filterItems} />
       <div className="container mt-4">{renderContent()}</div>
     </div>
   );

@@ -3,7 +3,7 @@ import axios from "../axios";
 import { useState } from "react";
 import Loading from "../Loading/loading";
 
-const CategoryList = () => {
+const CategoryList = ({ filterItems }) => {
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -14,28 +14,37 @@ const CategoryList = () => {
     };
     fetchCategories();
   }, []);
-  const renderContent = ()=>{
-    if(loading){
-      return <Loading theme="primary"/>
-    }else{
+  const renderContent = () => {
+    if (loading) {
+      return <Loading theme="primary" />;
+    } else {
       return (
         <ul className="nav">
-        <li className="nav-item">
-          <a href="#" className="nav-link">
-            همه فست فودها
-          </a>
-        </li>
-        {categories.map((category) => (
-          <li className="nav-item" key={category.id}>
+          <li
+            className="nav-item"
+            onClick={() => {
+              filterItems();
+            }}
+          >
             <a href="#" className="nav-link">
-              {category.name}
+              همه فست فودها
             </a>
           </li>
-        ))}
-      </ul>
-      )
+          {categories.map((category) => (
+            <li
+              className="nav-item"
+              key={category.id}
+              onClick={() => filterItems(category.id)}
+            >
+              <a href="#" className="nav-link">
+                {category.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      );
     }
-  }
+  };
   return (
     <nav className="container mt-n5">
       <div
