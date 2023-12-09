@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import axios from "../axios";
 import { useState } from "react";
 import Loading from "../Loading/loading";
+import SearchBar from "../SearchBar/searchBar";
 
 const CategoryList = ({ filterItems }) => {
   const [loading, setLoading] = useState(true);
@@ -19,34 +20,37 @@ const CategoryList = ({ filterItems }) => {
       return <Loading theme="primary" />;
     } else {
       return (
-        <ul className="nav">
-          <li
-            className="nav-item"
-            onClick={() => {
-              filterItems();
-            }}
-          >
-            <a href="#" className="nav-link">
-              همه فست فودها
-            </a>
-          </li>
-          {categories.map((category) => (
+        <div className="ps-3 w-100 d-flex align-items-center justify-content-between gap-5">
+          <ul className="nav">
             <li
               className="nav-item"
-              key={category.id}
-              onClick={() => filterItems(category.id)}
+              onClick={() => {
+                filterItems();
+              }}
             >
               <a href="#" className="nav-link">
-                {category.name}
+                همه فست فودها
               </a>
             </li>
-          ))}
-        </ul>
+            {categories.map((category) => (
+              <li
+                className="nav-item"
+                key={category.id}
+                onClick={() => filterItems(category.id)}
+              >
+                <a href="#" className="nav-link">
+                  {category.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <SearchBar />
+        </div>
       );
     }
   };
   return (
-    <nav className="container mt-n5">
+    <nav className="container mt-n5 ">
       <div
         className="d-flex align-items-center bg-white rounded-3 shadow-lg py-4"
         style={{ height: "80px" }}
