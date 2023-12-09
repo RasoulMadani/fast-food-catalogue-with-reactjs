@@ -1,0 +1,6 @@
+pnpm create vite@latest
+✔ Project name: … fast-food-catalogue
+✔ Select a framework: › React
+✔ Select a variant: › JavaScript
+
+pnpm add axios
