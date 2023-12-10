@@ -3,18 +3,12 @@ import axios from "../axios";
 import { useState } from "react";
 import Loading from "../Loading/loading";
 import SearchBar from "../SearchBar/searchBar";
+import useAxios from "../useAxios";
 
 const CategoryList = ({ filterItems, children }) => {
-  const [loading, setLoading] = useState(true);
-  const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const response = await axios.get("/FoodCategory/categories");
-      setCategories(response.data);
-      setLoading(false);
-    };
-    fetchCategories();
-  }, []);
+  const [categories, , loading] = useAxios({
+    url: "/FoodCategory/categories",
+  });
   const renderContent = () => {
     if (loading) {
       return <Loading theme="primary" />;
