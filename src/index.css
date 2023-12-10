@@ -1,3 +1,6 @@
+body {
+  overflow-y: scroll;
+}
 @keyframes fadeInHoriz {
   0% {
     opacity: 0;
@@ -10,6 +13,6 @@
   }
 }
 
-.fade-in-horiz{
-    animation: fadeInHoriz 0.8s ease forwards; /* forwards یعنی بعد از اینکه به نقطه پایان رسید استایلی که در پایان دارد حفظ شود*/
+.fade-in-horiz {
+  animation: fadeInHoriz 0.8s ease forwards; /* forwards یعنی بعد از اینکه به نقطه پایان رسید استایلی که در پایان دارد حفظ شود*/
 }
