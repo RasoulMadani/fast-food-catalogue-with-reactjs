@@ -1,12 +1,23 @@
+import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 const SearchBar = () => {
+  const [value, setValue] = useState("");
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(value);
+  };
   return (
-    <form className="search flex-fill d-flex align-items-center">
+    <form
+      onSubmit={onSubmit}
+      className="search flex-fill d-flex align-items-center"
+    >
       <div className="input-group">
         <input
           type="text"
           placeholder="جستجوی فست فود..."
           className="form-control rounded-end pe-5 border-success"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
         />
         <BsSearch className="position-absolute top-50 translate-middle-y text-muted me-3" />
       </div>
