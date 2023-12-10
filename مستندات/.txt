@@ -6,3 +6,5 @@ pnpm create vite@latest
 pnpm add axios
 
  pnpm add react-icons --save
+
+ pnpm add gh-pages --save-dev
